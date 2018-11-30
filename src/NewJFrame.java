@@ -1,6 +1,7 @@
 
 import java.awt.Color;
 import javax.swing.JPanel;
+import java.awt.BorderLayout;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -32,6 +33,7 @@ public class NewJFrame extends javax.swing.JFrame {
     JFreeChart chart;
     ChartPanel chartPanel;
     JPanel boxPanel;
+    XYLineAndShapeRenderer renderer;
     
     public NewJFrame() {
         this.setTitle("Differensiasi Numerik");
@@ -40,6 +42,7 @@ public class NewJFrame extends javax.swing.JFrame {
         dataset = createDataset();
         chart = createChart(dataset);
         chartPanel = new ChartPanel(chart);
+        
         initComponents();
     }
 
@@ -86,13 +89,13 @@ public class NewJFrame extends javax.swing.JFrame {
 
         chart.setBackgroundPaint(Color.WHITE);
         XYPlot plot = chart.getXYPlot();
+        renderer = new XYLineAndShapeRenderer();
         plot.setRangeZeroBaselineVisible(true);
         plot.setRangeZeroBaselinePaint(Color.WHITE);
         plot.setBackgroundPaint(Color.LIGHT_GRAY);
         plot.setDomainGridlinePaint(Color.WHITE);
         plot.setRangeGridlinePaint(Color.WHITE);
 
-        XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer();
         renderer.setSeriesShapesVisible(0, false);
         renderer.setSeriesShapesVisible(1, false);
         renderer.setSeriesShapesVisible(2, false);
@@ -122,6 +125,11 @@ public class NewJFrame extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBox3 = new javax.swing.JCheckBox();
+        jCheckBox4 = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
@@ -146,7 +154,53 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("h = 0.01", jPanel2);
 
-        jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
+        jPanel3.setLayout(new java.awt.BorderLayout());
+
+        jPanel4.setPreferredSize(new java.awt.Dimension(509, 30));
+        jPanel4.setLayout(new java.awt.GridBagLayout());
+
+        jCheckBox1.setSelected(true);
+        jCheckBox1.setText("f'(x) h = 0.1");
+        jCheckBox1.setMargin(new java.awt.Insets(2, 10, 2, 10));
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jCheckBox1, new java.awt.GridBagConstraints());
+
+        jCheckBox2.setSelected(true);
+        jCheckBox2.setText("f''(x) h = 0.1");
+        jCheckBox2.setMargin(new java.awt.Insets(2, 10, 2, 10));
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jCheckBox2, new java.awt.GridBagConstraints());
+
+        jCheckBox3.setSelected(true);
+        jCheckBox3.setText("f'(x) h = 0.01");
+        jCheckBox3.setMargin(new java.awt.Insets(2, 10, 2, 10));
+        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox3ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jCheckBox3, new java.awt.GridBagConstraints());
+
+        jCheckBox4.setSelected(true);
+        jCheckBox4.setText("f''(x) h = 0.01");
+        jCheckBox4.setMargin(new java.awt.Insets(2, 10, 2, 10));
+        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox4ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jCheckBox4, new java.awt.GridBagConstraints());
+
+        jPanel3.add(jPanel4, java.awt.BorderLayout.SOUTH);
+
         jTabbedPane1.addTab("graph", jPanel3);
         jPanel3.add(chartPanel);
         jPanel3.validate();
@@ -155,6 +209,30 @@ public class NewJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+        boolean visible = this.renderer.getItemVisible(0, 0);
+        renderer.setSeriesVisible(0, new Boolean(!visible));
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+        // TODO add your handling code here:
+        boolean visible = this.renderer.getItemVisible(1, 0);
+        renderer.setSeriesVisible(1, new Boolean(!visible));
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+        // TODO add your handling code here:
+        boolean visible = this.renderer.getItemVisible(2, 0);
+        renderer.setSeriesVisible(2, new Boolean(!visible));
+    }//GEN-LAST:event_jCheckBox3ActionPerformed
+
+    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
+        // TODO add your handling code here:
+        boolean visible = this.renderer.getItemVisible(3, 0);
+        renderer.setSeriesVisible(3, new Boolean(!visible));
+    }//GEN-LAST:event_jCheckBox4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,9 +271,14 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JCheckBox jCheckBox4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
