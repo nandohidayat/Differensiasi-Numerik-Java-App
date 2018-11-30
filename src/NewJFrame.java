@@ -80,6 +80,8 @@ public class NewJFrame extends javax.swing.JFrame {
         
         chart.setBackgroundPaint(Color.WHITE);
         XYPlot plot = chart.getXYPlot();
+        plot.setRangeZeroBaselineVisible(true);
+        plot.setRangeZeroBaselinePaint(Color.WHITE);
         plot.setBackgroundPaint(Color.LIGHT_GRAY);
         plot.setDomainGridlinePaint(Color.WHITE);
         plot.setRangeGridlinePaint(Color.WHITE);
