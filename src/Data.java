@@ -75,16 +75,16 @@ public class Data {
         for (Double d : f1x) {
             if ((d < 0 && f1x.get(f1x.indexOf(d) + 1) > 0) || d > 0 && f1x.get(f1x.indexOf(d) + 1) < 0) {
                 if (f11x.get(f1x.indexOf(d)) < 0 && f11x.get(f1x.indexOf(d) + 1) < 0) {
-                    maxmin.add("maximum");
+                    maxmin.add("Maximum");
                 } else if (f11x.get(f1x.indexOf(d)) > 0 && f11x.get(f1x.indexOf(d) + 1) > 0) {
-                    maxmin.add("minimum");
+                    maxmin.add("Minimum");
                 }
             } else {
                 if (f1x.indexOf(d) > 1 && f1x.indexOf(d) < 90) {
-                    if (maxmin.get(f1x.indexOf(d) - 1).equals("maximum") && !maxmin.get(f1x.indexOf(d) - 2).equals("maximum")) {
-                        maxmin.add("maximum");
-                    } else if (maxmin.get(f1x.indexOf(d) - 1).equals("minimum") && !maxmin.get(f1x.indexOf(d) - 2).equals("minimum")) {
-                        maxmin.add("minimum");
+                    if (maxmin.get(f1x.indexOf(d) - 1).equals("Maximum") && !maxmin.get(f1x.indexOf(d) - 2).equals("Maximum")) {
+                        maxmin.add("Maximum");
+                    } else if (maxmin.get(f1x.indexOf(d) - 1).equals("Minimum") && !maxmin.get(f1x.indexOf(d) - 2).equals("Minimum")) {
+                        maxmin.add("Minimum");
                     } else {
                         maxmin.add(" ");
                     }

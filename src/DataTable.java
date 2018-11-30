@@ -14,7 +14,7 @@ import javax.swing.table.AbstractTableModel;
 public class DataTable extends AbstractTableModel {
     
     Data d;
-    private final String HEADER[]={"x","f(x)","f'(x)","f''(x)","Ket"};
+    private final String HEADER[]={"x","f(x)","f'(x)","f''(x)","Keterangan"};
 
     public DataTable() {
         this.d = new Data();
@@ -42,10 +42,10 @@ public class DataTable extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) {
         
         switch(columnIndex){
-            case 0: return d.getX().get(rowIndex);
-            case 1: return d.getFx().get(rowIndex);
-            case 2: return d.getF1x().get(rowIndex);
-            case 3: return d.getF11x().get(rowIndex);
+            case 0: return String.format("%.1f", d.getX().get(rowIndex));
+            case 1: return String.format("%.12f", d.getFx().get(rowIndex));
+            case 2: return String.format("%.12f",d.getF1x().get(rowIndex));
+            case 3: return String.format("%.12f",d.getF11x().get(rowIndex));
             case 4: return d.getMaxmin().get(rowIndex);
             default: return null;
         }
