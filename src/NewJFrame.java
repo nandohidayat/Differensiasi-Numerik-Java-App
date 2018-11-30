@@ -33,12 +33,15 @@ public class NewJFrame extends javax.swing.JFrame {
     ChartPanel chartPanel;
     
     public NewJFrame() {
+        this.setTitle("Differensiasi Numerik");
         initComponents();
     }
     
     XYDataset createDataset() {
-        XYSeries series1 = new XYSeries("f'(x)");
-        XYSeries series2 = new XYSeries("f''(x)");
+        XYSeries series1 = new XYSeries("f'(x) h = 0.1");
+        XYSeries series2 = new XYSeries("f''(x) h = 0.1");
+        XYSeries series3 = new XYSeries("f'(x) h = 0.01");
+        XYSeries series4 = new XYSeries("f''(x) h = 0.01");
         for(Double d : data.getX()) {
             series1.add(d, data.getF1x().get(data.getX().indexOf(d)));
         }
@@ -47,16 +50,26 @@ public class NewJFrame extends javax.swing.JFrame {
             series2.add(d, data.getF11x().get(data.getX().indexOf(d)));
         }
         
+        for(Double d : data1.getX()) {
+            series3.add(d, data1.getF1x().get(data1.getX().indexOf(d)));
+        }
+        
+        for(Double d : data1.getX()) {
+            series4.add(d, data1.getF11x().get(data1.getX().indexOf(d)));
+        }
+        
         XYSeriesCollection dataset = new XYSeriesCollection();
         dataset.addSeries(series1);
         dataset.addSeries(series2);
+        dataset.addSeries(series3);
+        dataset.addSeries(series4);
         
         return dataset;
     }
     
     JFreeChart createChart(XYDataset dataset) {
         JFreeChart chart = ChartFactory.createXYLineChart(
-                "h = 0.1", 
+                "Graph", 
                 "X", 
                 "Y", 
                 dataset,
@@ -74,6 +87,8 @@ public class NewJFrame extends javax.swing.JFrame {
         XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer();
         renderer.setSeriesShapesVisible(0, false);
         renderer.setSeriesShapesVisible(1, false);
+        renderer.setSeriesShapesVisible(2, false);
+        renderer.setSeriesShapesVisible(3, false);
         plot.setRenderer(renderer);
         
 //        NumberAxis rangeAxis = (NumberAxis) plot.getRangeAxis();
