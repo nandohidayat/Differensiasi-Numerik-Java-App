@@ -76,8 +76,8 @@ public class NewJFrame extends javax.swing.JFrame {
         renderer.setSeriesShapesVisible(1, false);
         plot.setRenderer(renderer);
         
-        NumberAxis rangeAxis = (NumberAxis) plot.getRangeAxis();
-        rangeAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
+//        NumberAxis rangeAxis = (NumberAxis) plot.getRangeAxis();
+//        rangeAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
         
         return chart;
         
@@ -169,6 +169,7 @@ public class NewJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                
                 new NewJFrame().setVisible(true);
             }
         });
