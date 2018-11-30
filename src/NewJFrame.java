@@ -1,5 +1,6 @@
 
 import java.awt.Color;
+import javax.swing.JPanel;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -25,14 +26,20 @@ public class NewJFrame extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    Data data  = new Data();
-    Data1 data1  = new Data1();
-    XYDataset dataset  = createDataset();
-    JFreeChart chart  = createChart(dataset);
-    ChartPanel chartPanel  = new ChartPanel(chart);
-
+    Data data;
+    Data1 data1;
+    XYDataset dataset;
+    JFreeChart chart;
+    ChartPanel chartPanel;
+    JPanel boxPanel;
+    
     public NewJFrame() {
         this.setTitle("Differensiasi Numerik");
+        data = new Data();
+        data1 = new Data1();
+        dataset = createDataset();
+        chart = createChart(dataset);
+        chartPanel = new ChartPanel(chart);
         initComponents();
     }
 
