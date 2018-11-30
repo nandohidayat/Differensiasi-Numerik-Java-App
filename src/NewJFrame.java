@@ -1,8 +1,6 @@
 
 import java.awt.Color;
 import javax.swing.JPanel;
-import java.awt.BorderLayout;
-import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
