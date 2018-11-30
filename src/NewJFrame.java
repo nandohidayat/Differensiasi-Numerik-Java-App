@@ -111,10 +111,10 @@ public class NewJFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
@@ -129,16 +129,6 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("h = 0.1", jPanel1);
 
-        jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
-        jTabbedPane1.addTab("graph h = 0.1", jPanel3);
-        data = new Data();
-        data1 = new Data1();
-        dataset = createDataset();
-        chart = createChart(dataset);
-        chartPanel = new ChartPanel(chart);
-        jPanel3.add(chartPanel);
-        jPanel3.validate();
-
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
 
         jTable2.setModel(new DataTable1());
@@ -148,6 +138,16 @@ public class NewJFrame extends javax.swing.JFrame {
         jPanel2.add(jScrollPane2);
 
         jTabbedPane1.addTab("h = 0.01", jPanel2);
+
+        jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
+        jTabbedPane1.addTab("graph", jPanel3);
+        data = new Data();
+        data1 = new Data1();
+        dataset = createDataset();
+        chart = createChart(dataset);
+        chartPanel = new ChartPanel(chart);
+        jPanel3.add(chartPanel);
+        jPanel3.validate();
 
         getContentPane().add(jTabbedPane1);
 
