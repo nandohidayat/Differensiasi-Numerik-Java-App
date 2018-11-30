@@ -34,11 +34,7 @@ public class NewJFrame extends javax.swing.JFrame {
     
     public NewJFrame() {
         initComponents();
-        data = new Data();
-        data1 = new Data1();
-        dataset = createDataset();
-        chart = createChart(dataset);
-        chartPanel = new ChartPanel(chart);
+        
     }
     
     XYDataset createDataset() {
@@ -46,10 +42,11 @@ public class NewJFrame extends javax.swing.JFrame {
         XYSeries series2 = new XYSeries("f''(x)");
         for(Double d : data.getX()) {
             series1.add(d, data.getF1x().get(data.getX().indexOf(d)));
+            System.out.println(d);
         }
         
-        for(Double d : data1.getX()) {
-            series1.add(d, data1.getF1x().get(data1.getX().indexOf(d)));
+        for(Double d : data.getX()) {
+            series2.add(d, data.getF11x().get(data.getX().indexOf(d)));
         }
         
         XYSeriesCollection dataset = new XYSeriesCollection();
@@ -119,19 +116,15 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("h = 0.1", jPanel1);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 509, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 272, Short.MAX_VALUE)
-        );
-
+        jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.LINE_AXIS));
         jTabbedPane1.addTab("graph h = 0.1", jPanel3);
+        data = new Data();
+        data1 = new Data1();
+        dataset = createDataset();
+        chart = createChart(dataset);
+        chartPanel = new ChartPanel(chart);
         jPanel3.add(chartPanel);
+        jPanel3.validate();
 
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.LINE_AXIS));
 
