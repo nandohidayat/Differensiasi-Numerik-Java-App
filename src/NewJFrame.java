@@ -41,7 +41,6 @@ public class NewJFrame extends javax.swing.JFrame {
         XYSeries series2 = new XYSeries("f''(x)");
         for(Double d : data.getX()) {
             series1.add(d, data.getF1x().get(data.getX().indexOf(d)));
-            System.out.println(d);
         }
         
         for(Double d : data.getX()) {
@@ -73,7 +72,7 @@ public class NewJFrame extends javax.swing.JFrame {
         plot.setRangeGridlinePaint(Color.WHITE);
         
         XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer();
-        renderer.setSeriesLinesVisible(0, false);
+        renderer.setSeriesShapesVisible(0, false);
         renderer.setSeriesShapesVisible(1, false);
         plot.setRenderer(renderer);
         
